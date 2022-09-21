@@ -8,7 +8,11 @@ urlpatterns = [
   path('formdata/',views.form_data,name='reform'),
   path('login_data/',views.Login_form,name='form'),
   path('data/',views.data,name='alldata'),
-  path('delete_user/',views.delete_user)
+  path('delete_user/',views.delete_user),
+  path('update_view/<int:uid>/',views.update_view),
+  path('update_form_data/',views.update_form_data),
+
+
 
 
 ]

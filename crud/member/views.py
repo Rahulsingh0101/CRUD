@@ -80,4 +80,27 @@ def delete_user(request):
     else:
         return JsonResponse({"staus": False, "message" : "Method not allowed"})
 
+
+def update_view(request,uid):
+    res = Student.objects.get(id = uid)
+    return render(request,'id/update.html',context={'person':res})
+
+
+
+# USE UPDATE DATA     
+def update_form_data(request):
+    if request.method =='POST':
+        uid = request.POST['uid'] 
+        first_name = request.POST['first_name'] 
+        last_name = request.POST['last_name'] 
+        company_name = request.POST['company'] 
+        Emai_name = request.POST['Email'] 
+        phone_number = request.POST['Phone'] 
+
+        Student.objects.filter(id=uid).update(first_name=first_name,last_name=last_name,
+                                              company_name=company_name,Email_name=Emai_name,
+                                              phone_number=phone_number),
+
+        return redirect('/data')
+
              
